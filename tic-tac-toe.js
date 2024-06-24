@@ -37,7 +37,7 @@ function checkWin(){
 
         if(v0!=="" && v0===v1 && v0===v2){
             // alert(turn);
-            // $(".main-grid").css("display","none");
+            $(".main-grid").css("display","none");
             gameOver=true;
             $("#results").html("Congratulation , "+turn+" Wins");
             $("#play-again").css("display","inline");
@@ -58,12 +58,16 @@ function checkDraw(){
         if(draw){
             gameOver=true;
             $("#results").html("Its a DRAW");
+            $(".main-grid").css("display","none");
             $("#play-again").css("display","inline");
             $("#reset").css("display","none");
         }
     }
 }
 $("#play-again").click(function(){
+    $("#X").css("background-color","#09BC8A");
+    $("#O").css("background-color","#172A3A");
+    $(".main-grid").css("display","");
     gameOver=false;
     turn="X";
     $("#results").html("");
@@ -76,6 +80,8 @@ $("#play-again").click(function(){
     })
 });
 $("#reset").click(function(){
+    $("#X").css("background-color","#09BC8A");
+    $("#O").css("background-color","#172A3A");
     gameOver=false;
     turn="X";
     $("#results").html("");
